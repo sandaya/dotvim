@@ -9,5 +9,5 @@ cd tmp
 [ ! -d "swap" ] && mkdir "swap"
 [ ! -d "undo" ] && mkdir "undo"
 [ ! -d "view" ] && mkdir "view"
-
+cd ~
 
