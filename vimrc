@@ -1,6 +1,19 @@
-filetype plugin indent on
-
 set nocompatible
+filetype off
+
+com! -nargs=? Bundle
+set runtimepath+=~/.vim/bundle/vundle/
+silent! call vundle#rc()
+if !exists("*vundle#rc")
+    set runtimepath+=~/.vim/bundle/pathogen
+    silent! call pathogen#inject()
+endif
+
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/nerdtree'
+Bundle 'fholgado/minibufexpl.vim'
+
+filetype plugin indent on
 
 " Security
 set modelines=0
