@@ -22,6 +22,12 @@ set modelines=0
 let mapleader = ","
 let g:mapleader = ","
 
+" Reload vimrc on edit
+autocmd! bufwritepost vimrc source $MYVIMRC
+
+" sudo save
+cmap w!! w !sudo dd of=%
+
 " Tabs and spaces
 set tabstop=4
 set shiftwidth=4
@@ -48,8 +54,11 @@ set showmatch
 nnoremap <leader><space> :noh<cr>
 
 " Wrapping
+set nowrap
 set colorcolumn=85
 
+" Tabs and Windows
+set switchbuf=usetab
 
 " Other UI
 syntax on
@@ -72,6 +81,7 @@ set wildmenu
 set wildmode=list:longest
 set backspace=indent,eol,start
 set autochdir
+
 nnoremap j gj
 nnoremap k gk
 
@@ -79,8 +89,6 @@ inoremap jj <ESC>
 inoremap kk <ESC>
 inoremap hh <ESC>
 
-" sudo save
-cmap w!! w !sudo dd of=%
 
 "nnoremap <up> <nop>
 "nnoremap <down> <nop>
