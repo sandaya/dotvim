@@ -5,11 +5,12 @@ com! -nargs=? Bundle
 set runtimepath+=~/.vim/bundle/vundle/
 silent! call vundle#rc()
 if !exists("*vundle#rc")
-    set runtimepath+=~/.vim/bundle/pathogen
+    set runtimepath+=~/.vim/bundle/vim-pathogen/autoload
     silent! call pathogen#inject()
 endif
 
 Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-pathogen'
 Bundle 'scrooloose/nerdtree'
 Bundle 'fholgado/minibufexpl.vim'
 
@@ -34,11 +35,12 @@ set autoindent
 
 " Backup, undo and other directories
 set backup
-set undofile
-set undoreload=10000
+if has ("persistent_undo")
+    set undofile
+    set undodir=~/.vim/tmp/undo//
+endif
 set backupdir=~/.vim/tmp/backup//
 set directory=~/.vim/tmp/swap//
-set undodir=~/.vim/tmp/undo//
 set viewdir=~/.vim/tmp/view//
 
 " Search
@@ -49,9 +51,13 @@ set hlsearch
 set gdefault
 set showmatch
 nnoremap <leader><space> :noh<cr>
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " Wrapping
 set nowrap
+nnoremap j gj
+nnoremap k gk
 
 " Windows
 nnoremap <leader>j <C-W>j
@@ -66,9 +72,12 @@ colorscheme desert
 set showmode
 set showcmd
 set ruler
-set relativenumber
 set laststatus=2
 set scrolloff=3
+if version >= 703
+    set relativenumber
+    set colorcolumn=85
+endif
 
 " Others
 set ffs=unix,dos,mac
@@ -80,18 +89,10 @@ set wildmode=list:longest
 set backspace=indent,eol,start
 set autochdir
 
-nnoremap j gj
-nnoremap k gk
-
 inoremap jj <ESC>
 inoremap kk <ESC>
 inoremap hh <ESC>
 
-" vimrc
-nnoremap <leader>ve :e ~/.vim/vimrc<cr>
-nnoremap <leader>vs :source ~/.vim/vimrc<cr>
-
 " scrooloose/nerdtree
-nnoremap <leader>e :NERDTree<cr>
+nnoremap <leader>e :NERDTreeToggle<cr>
 nnoremap <leader>ee :NERDTree<space>
-nnoremap <leader>ec :NERDTreeClose<cr>
