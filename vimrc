@@ -22,9 +22,6 @@ set modelines=0
 let mapleader = ","
 let g:mapleader = ","
 
-" Reload vimrc on edit
-autocmd! bufwritepost vimrc source $MYVIMRC
-
 " sudo save
 cmap w!! w !sudo dd of=%
 
@@ -55,10 +52,12 @@ nnoremap <leader><space> :noh<cr>
 
 " Wrapping
 set nowrap
-set colorcolumn=85
 
-" Tabs and Windows
-set switchbuf=usetab
+" Windows
+nnoremap <leader>j <C-W>j
+nnoremap <leader>k <C-W>k
+nnoremap <leader>l <C-W>l
+nnoremap <leader>h <C-W>h
 
 " Other UI
 syntax on
@@ -66,7 +65,6 @@ set background=dark
 colorscheme desert
 set showmode
 set showcmd
-"set ttyfast
 set ruler
 set relativenumber
 set laststatus=2
@@ -89,17 +87,11 @@ inoremap jj <ESC>
 inoremap kk <ESC>
 inoremap hh <ESC>
 
+" vimrc
+nnoremap <leader>ve :e ~/.vim/vimrc<cr>
+nnoremap <leader>vs :source ~/.vim/vimrc<cr>
 
-"nnoremap <up> <nop>
-"nnoremap <down> <nop>
-"nnoremap <left> <nop>
-"nnoremap <right> <nop>
-"inoremap <up> <nop>
-"inoremap <down> <nop>
-"inoremap <left> <nop>
-"inoremap <right> <nop>
-
-
-" fholgado/minibufexpl.vim
-let g:miniBufExplorerMoreThanOne=0
-
+" scrooloose/nerdtree
+nnoremap <leader>e :NERDTree<cr>
+nnoremap <leader>ee :NERDTree<space>
+nnoremap <leader>ec :NERDTreeClose<cr>
