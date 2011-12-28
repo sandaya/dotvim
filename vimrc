@@ -100,4 +100,6 @@ inoremap hh <ESC>
 "inoremap <right> <nop>
 
 
+" fholgado/minibufexpl.vim
+let g:miniBufExplorerMoreThanOne=0
 
