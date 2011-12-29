@@ -1,26 +1,38 @@
 set nocompatible
 filetype off
 
-com! -nargs=? Bundle
 set runtimepath+=~/.vim/bundle/vundle/
 silent! call vundle#rc()
-if !exists("*vundle#rc")
-    set runtimepath+=~/.vim/bundle/vim-pathogen/autoload
-    silent! call pathogen#inject()
+if exists("*vundle#rc")
+    Bundle 'gmarik/vundle'
+
+    " FuzzyFinder
+    if version >= 703
+        Bundle 'L9'
+        Bundle 'FuzzyFinder'
+        let g:fuf_modesDisable = []
+        nnoremap <space>h :FufHelp<cr>
+        nnoremap <space>f :FufFileWithCurrentBufferDir<cr>
+        nnoremap <space>b :FufBuffer<cr>
+        nnoremap <space>r :FufMruFile<cr>
+        nnoremap <space>l :FufLine<cr>
+        nnoremap <space>d :FufDirWithCurrentBufferDir<cr>
+    else
+        Bundle 'FuzzyFinder1.4.1'
+        nnoremap <space>f :FuzzyFinderFile<cr>
+        nnoremap <space>b :FuzzyFinderBuffer<cr>
+        nnoremap <space>r :FuzzyFinderMruFile<cr>
+    endif
+
+    " git
+    Bundle 'tpope/vim-git'
+    Bundle 'tpope/vim-fugitive'
+
+    " utils
+    Bundle 'tpope/vim-repeat'
+    Bundle 'tpope/vim-surround'
+    Bundle 'tpope/vim-commentary'
 endif
-
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-pathogen'
-
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-
-Bundle 'tpope/vim-git'
-Bundle 'tpope/vim-fugitive'
-
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-commentary'
 
 filetype plugin indent on
 
@@ -74,9 +86,9 @@ nnoremap <leader>l <C-W>l
 nnoremap <leader>h <C-W>h
 
 " Other UI
-syntax on
 set background=dark
 colorscheme desert
+syntax on
 set showmode
 set showcmd
 set ruler
@@ -101,11 +113,3 @@ inoremap jj <ESC>
 inoremap kk <ESC>
 inoremap hh <ESC>
 
-" FuzzyFinder
-let g:fuf_modesDisable = []
-nnoremap <space>h :FufHelp<cr>
-nnoremap <space>f :FufFileWithCurrentBufferDir<cr>
-nnoremap <space>b :FufBuffer<cr>
-nnoremap <space>r :FufMruFile<cr>
-nnoremap <space>l :FufLine<cr>
-nnoremap <space>d :FufDirWithCurrentBufferDir<cr>
