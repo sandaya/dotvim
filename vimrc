@@ -11,8 +11,16 @@ endif
 
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-pathogen'
-Bundle 'scrooloose/nerdtree'
-Bundle 'fholgado/minibufexpl.vim'
+
+Bundle 'L9'
+Bundle 'FuzzyFinder'
+
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-fugitive'
+
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-commentary'
 
 filetype plugin indent on
 
@@ -93,6 +101,11 @@ inoremap jj <ESC>
 inoremap kk <ESC>
 inoremap hh <ESC>
 
-" scrooloose/nerdtree
-nnoremap <leader>e :NERDTreeToggle<cr>
-nnoremap <leader>ee :NERDTree<space>
+" FuzzyFinder
+let g:fuf_modesDisable = []
+nnoremap <space>h :FufHelp<cr>
+nnoremap <space>f :FufFileWithCurrentBufferDir<cr>
+nnoremap <space>b :FufBuffer<cr>
+nnoremap <space>r :FufMruFile<cr>
+nnoremap <space>l :FufLine<cr>
+nnoremap <space>d :FufDirWithCurrentBufferDir<cr>
