@@ -108,6 +108,7 @@ set wildmenu
 set wildmode=list:longest
 set backspace=indent,eol,start
 set autochdir
+set clipboard=unnamed
 
 inoremap jj <ESC>
 inoremap kk <ESC>
