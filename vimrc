@@ -15,7 +15,7 @@ if exists("*vundle#rc")
         nnoremap <space>f :FufFileWithCurrentBufferDir<cr>
         nnoremap <space>b :FufBuffer<cr>
         nnoremap <space>r :FufMruFile<cr>
-        nnoremap <space>l :FufLine<cr>
+        nnoremap <space>n :FufLine<cr>
         nnoremap <space>d :FufDirWithCurrentBufferDir<cr>
     else
         Bundle 'FuzzyFinder1.4.1'
@@ -109,6 +109,7 @@ set wildmode=list:longest
 set backspace=indent,eol,start
 set autochdir
 set clipboard=unnamed
+set pastetoggle=<F2>
 
 inoremap jj <ESC>
 inoremap kk <ESC>
