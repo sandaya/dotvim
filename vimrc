@@ -112,6 +112,6 @@ set clipboard=unnamed
 set pastetoggle=<F2>
 
 inoremap jj <ESC>
-inoremap kk <ESC>
-inoremap hh <ESC>
+
+
 
