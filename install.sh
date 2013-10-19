@@ -4,6 +4,7 @@ cd "$(dirname "${BASH_SOURCE}")"
 git pull origin master
 
 ln -sfn $(pwd)/vimrc ~/.vimrc
+[ ! -d ~/.vim ] && ln -sfn $(pwd) ~/.vim
 
 [ ! -d "tmp" ] && mkdir "tmp"
 cd tmp
