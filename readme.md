@@ -1,3 +1,3 @@
-* git clone git://github.com/sandaya/dotvim.git ~/.vim
-* ~/.vim/install.sh
+* git clone git://github.com/sandaya/dotvim.git ~/dotvim
+* ~/dotvim/install.sh
 
