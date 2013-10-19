@@ -1,8 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-ln -sfn ~/.vim/vimrc ~/.vimrc
+cd "$(dirname "${BASH_SOURCE}")"
+git pull origin master
 
-cd ~/.vim
+ln -sfn $(pwd)/vimrc ~/.vimrc
+
 [ ! -d "tmp" ] && mkdir "tmp"
 cd tmp
 [ ! -d "backup" ] && mkdir "backup"
@@ -11,7 +13,12 @@ cd tmp
 [ ! -d "view" ] && mkdir "view"
 cd ~
 
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+if [ -d ./bundle/vundle ]; then
+    cd ./bundle/vundle
+    git pull origin master
+else
+    git clone https://github.com/gmarik/vundle.git ./bundle/vundle
+fi
 
 vim +BundleInstall +qall
 
