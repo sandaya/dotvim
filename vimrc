@@ -107,9 +107,11 @@ set hidden
 set wildmenu
 set wildmode=list:longest
 set backspace=indent,eol,start
+set whichwrap+=<,>,h,l
 set autochdir
 set clipboard=unnamed
 set pastetoggle=<F2>
+"set magic
 
 inoremap jj <ESC>
 
