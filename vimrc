@@ -32,6 +32,8 @@ if exists("*vundle#rc")
     Bundle 'tpope/vim-repeat'
     Bundle 'tpope/vim-surround'
     Bundle 'tpope/vim-commentary'
+
+    Bundle 'chase/vim-ansible-yaml'
 endif
 
 filetype plugin indent on
