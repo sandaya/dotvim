@@ -6,36 +6,20 @@ silent! call vundle#begin()
 if exists("*vundle#begin")
     Plugin 'VundleVim/Vundle.vim'
 
+    Plugin 'tpope/vim-repeat'
+    Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-commentary'
+
     Plugin 'kien/ctrlp.vim'
+    let g:ctrlp_map = ''
+    let g:ctrlp_regexp = 1
+    nnoremap <space>f :CtrlPMixed<cr>
 
-    " FuzzyFinder
-    "if version >= 703
-    "    Bundle 'L9'
-    "    Bundle 'FuzzyFinder'
-    "    let g:fuf_modesDisable = []
-    "    nnoremap <space>h :FufHelp<cr>
-    "    nnoremap <space>f :FufFileWithCurrentBufferDir<cr>
-    "    nnoremap <space>b :FufBuffer<cr>
-    "    nnoremap <space>r :FufMruFile<cr>
-    "    nnoremap <space>n :FufLine<cr>
-    "    nnoremap <space>d :FufDirWithCurrentBufferDir<cr>
-    "else
-    "    Bundle 'FuzzyFinder1.4.1'
-    "    nnoremap <space>f :FuzzyFinderFile<cr>
-    "    nnoremap <space>b :FuzzyFinderBuffer<cr>
-    "    nnoremap <space>r :FuzzyFinderMruFile<cr>
-    "endif
+    Plugin 'scrooloose/nerdtree'
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    nnoremap <space>t :NERDTreeToggle<cr>
 
-    " git
-    "Bundle 'tpope/vim-git'
-    "Bundle 'tpope/vim-fugitive'
-
-    " utils
-    "Bundle 'tpope/vim-repeat'
-    "Bundle 'tpope/vim-surround'
-    "Bundle 'tpope/vim-commentary'
-
-    "Bundle 'chase/vim-ansible-yaml'
 endif
 silent! call vundle#end()
 filetype plugin indent on
