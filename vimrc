@@ -1,41 +1,43 @@
 set nocompatible
 filetype off
 
-set runtimepath+=~/.vim/bundle/vundle/
-silent! call vundle#rc()
-if exists("*vundle#rc")
-    Bundle 'gmarik/vundle'
+set runtimepath+=~/.vim/bundle/Vundle.vim
+silent! call vundle#begin()
+if exists("*vundle#begin")
+    Plugin 'VundleVim/Vundle.vim'
+
+    Plugin 'kien/ctrlp.vim'
 
     " FuzzyFinder
-    if version >= 703
-        Bundle 'L9'
-        Bundle 'FuzzyFinder'
-        let g:fuf_modesDisable = []
-        nnoremap <space>h :FufHelp<cr>
-        nnoremap <space>f :FufFileWithCurrentBufferDir<cr>
-        nnoremap <space>b :FufBuffer<cr>
-        nnoremap <space>r :FufMruFile<cr>
-        nnoremap <space>n :FufLine<cr>
-        nnoremap <space>d :FufDirWithCurrentBufferDir<cr>
-    else
-        Bundle 'FuzzyFinder1.4.1'
-        nnoremap <space>f :FuzzyFinderFile<cr>
-        nnoremap <space>b :FuzzyFinderBuffer<cr>
-        nnoremap <space>r :FuzzyFinderMruFile<cr>
-    endif
+    "if version >= 703
+    "    Bundle 'L9'
+    "    Bundle 'FuzzyFinder'
+    "    let g:fuf_modesDisable = []
+    "    nnoremap <space>h :FufHelp<cr>
+    "    nnoremap <space>f :FufFileWithCurrentBufferDir<cr>
+    "    nnoremap <space>b :FufBuffer<cr>
+    "    nnoremap <space>r :FufMruFile<cr>
+    "    nnoremap <space>n :FufLine<cr>
+    "    nnoremap <space>d :FufDirWithCurrentBufferDir<cr>
+    "else
+    "    Bundle 'FuzzyFinder1.4.1'
+    "    nnoremap <space>f :FuzzyFinderFile<cr>
+    "    nnoremap <space>b :FuzzyFinderBuffer<cr>
+    "    nnoremap <space>r :FuzzyFinderMruFile<cr>
+    "endif
 
     " git
-    Bundle 'tpope/vim-git'
-    Bundle 'tpope/vim-fugitive'
+    "Bundle 'tpope/vim-git'
+    "Bundle 'tpope/vim-fugitive'
 
     " utils
-    Bundle 'tpope/vim-repeat'
-    Bundle 'tpope/vim-surround'
-    Bundle 'tpope/vim-commentary'
+    "Bundle 'tpope/vim-repeat'
+    "Bundle 'tpope/vim-surround'
+    "Bundle 'tpope/vim-commentary'
 
-    Bundle 'chase/vim-ansible-yaml'
+    "Bundle 'chase/vim-ansible-yaml'
 endif
-
+silent! call vundle#end()
 filetype plugin indent on
 
 " Security

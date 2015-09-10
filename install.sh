@@ -10,7 +10,7 @@ if [ -d ./bundle/vundle ]; then
     cd ./bundle/vundle
     git pull origin master
 else
-    git clone https://github.com/gmarik/vundle.git ./bundle/vundle
+    git clone https://github.com/VundleVim/Vundle.vim.git ./bundle/Vundle.vim
 fi
 
 [ ! -d "tmp" ] && mkdir "tmp"
@@ -21,5 +21,5 @@ cd tmp
 [ ! -d "view" ] && mkdir "view"
 cd ~
 
-vim +BundleInstall +qall
+vim +PluginInstall +qall
 
