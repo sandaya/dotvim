@@ -1,28 +1,11 @@
 set nocompatible
-filetype off
+set encoding=utf-8
+scriptencoding utf-8
+language en_US.utf-8
+set fileencoding=utf-8
 
-set runtimepath+=~/.vim/bundle/Vundle.vim
-silent! call vundle#begin()
-if exists("*vundle#begin")
-    Plugin 'VundleVim/Vundle.vim'
-
-    Plugin 'tpope/vim-repeat'
-    Plugin 'tpope/vim-surround'
-    Plugin 'tpope/vim-commentary'
-
-    Plugin 'kien/ctrlp.vim'
-    let g:ctrlp_map = ''
-    let g:ctrlp_regexp = 1
-    nnoremap <space>f :CtrlPMixed<cr>
-
-    Plugin 'scrooloose/nerdtree'
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-    nnoremap <space>t :NERDTreeToggle<cr>
-
-endif
-silent! call vundle#end()
 filetype plugin indent on
+syntax enable
 
 " Security
 set modelines=0
@@ -66,6 +49,8 @@ nnoremap N Nzzzv
 set nowrap
 nnoremap j gj
 nnoremap k gk
+set linebreak
+set showbreak=>\
 
 " Windows
 nnoremap <leader>j <C-W>j
@@ -76,30 +61,42 @@ nnoremap <leader>h <C-W>h
 " Other UI
 set background=dark
 colorscheme desert
-syntax on
+
+set confirm
+set cursorline
 set showmode
 set showcmd
 set ruler
 set laststatus=2
 set scrolloff=3
-if version >= 703
-    set relativenumber
-    set colorcolumn=85
-endif
+set relativenumber
+set colorcolumn=80
 
-" Others
-set ffs=unix,dos,mac
+set clipboard+=unnamed
+set clipboard+=unnamedplus
+
+set splitbelow splitright
+
+set fileformats=unix,dos,mac
 set history=750
-set encoding=utf-8
 set hidden
 set wildmenu
 set wildmode=list:longest
 set backspace=indent,eol,start
 set whichwrap+=<,>,h,l
 set autochdir
-set clipboard=unnamed
 set pastetoggle=<F2>
-"set magic
+
+set completeopt+=menuone
+set pumheight=15
+
+set virtualedit=block
+
+set title
+set titlestring=
+set titlestring+=%(%{hostname()}\ \ %)
+set titlestring+=%(%{expand('%:p')}\ \ %)
+set titlestring+=%{strftime('%Y-%m-%d\ %H:%M',getftime(expand('%')))}
 
 inoremap jj <ESC>
 
