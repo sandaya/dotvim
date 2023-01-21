@@ -21,5 +21,3 @@ cd tmp
 [ ! -d "view" ] && mkdir "view"
 cd ~
 
-vim +PluginInstall +qall
-
